@@ -1,8 +1,11 @@
 const fs = require('fs');
+const path =require('path');
 const DATA_FILE = './data/tasks.json';
 
 const loadTasks = () => {
-    if (fs.existsSync(DATA_FILE)) {
+    let filename=path.join(__dirname,DATA_FILE);
+    console.log(filename);
+    if (fs.existsSync(filename)) {
         const data = fs.readFileSync(DATA_FILE, 'utf8');
         return JSON.parse(data);
     }
